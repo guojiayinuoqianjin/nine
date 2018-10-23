@@ -1,0 +1,188 @@
+<view class='content'>
+
+ <!--顶部搜索和消息中心-->
+  <view class="header-search {{scrollTop==0?'none':''}}">
+    <view class="lu"></view>
+    <input placeholder='请输入你要搜索的产品' placeholder-class='pla-input' bindfocus="goSearch">
+        <text>郑州</text>
+        <image src="../../img/search.png" mode="aspectFit"></image>
+    </input>
+    <view class="message" bindtap="goMessageCenter"></view>
+  </view>
+
+
+<!-- 轮播 -->
+  <swiper indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" >
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="../../img/img1.jpg" class="slide-image" width="355" height="150"/>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="indexTab">
+      <view class="tabImage">
+        <image class="tabImage1" src="../../img/myJob.png"></image>
+        <text>我的职位</text>
+      </view>
+      <view class="tabImage">
+        <image src="../../img/job.png"></image>
+        <text>急招岗位</text>
+      </view>
+  </view>
+
+  <view class="jobList">
+
+      <view class="jobImage">
+        <image src="../../img/img1.jpg"></image>
+      </view>
+
+      <view class="jobTitle">
+        <view class="jobTitle11">
+            <text class="jobTitle1">索菲特国际酒店巴拉巴拉巴拉索菲特国际酒店巴拉巴拉巴拉</text>
+        </view>
+        <view class="jobTitle2">
+            <text style='margin-left:0'>工作时间:</text>
+            <text class="jobTime">9-13(周四)7：00-23：00</text>
+        </view>
+        <view class="jobTitle2">
+            <text class='classA'>A</text>
+            <text class="jobTime">性别:男</text>
+        </view>
+      
+         <view class="jobTitle3">
+            <image src="../../img/addr.png"></image>
+            <text class="jobAddr">金水区，金水路城东路东南角水路城东路东南角</text>
+         </view>
+         
+      </view>
+
+      <view class="jobPrice">
+        <view>
+          <text class="jobPriceTextPrice">11</text>
+          <text class="jobPriceTextTime">/时</text>
+        </view>
+        <view class="jobAddrKm"><text>12.96km</text></view>
+      </view>
+
+      <view class="allin">
+          <image src='../../img/allin.png'></image>
+      </view>
+  
+  
+  </view>
+
+
+  
+  <view class="jobList">
+
+      <view class="jobImage">
+        <image src="../../img/img1.jpg"></image>
+      </view>
+
+      <view class="jobTitle">
+        <view class="jobTitle11">
+            <text class="jobTitle1">索菲特国际酒店巴拉巴拉巴拉索菲特国际酒店巴拉巴拉巴拉</text>
+        </view>
+        <view class="jobTitle2">
+            <text style='margin-left:0'>工作时间:</text>
+            <text class="jobTime">9-13(周四)7：00-23：00</text>
+        </view>
+        <view class="jobTitle2">
+            <text class='classA'>A</text>
+            <text class="jobTime">性别:男</text>
+        </view>
+      
+         <view class="jobTitle3">
+            <image src="../../img/addr.png"></image>
+            <text class="jobAddr">金水区，金水路城东路东南角水路城东路东南角</text>
+         </view>
+         
+      </view>
+
+      <view class="jobPrice">
+        <view>
+          <text class="jobPriceTextPrice">11</text>
+          <text class="jobPriceTextTime">/时</text>
+        </view>
+        <view class="jobAddrKm"><text>12.96km</text></view>
+      </view>
+
+      <view class="allin">
+          <image src='../../img/allin.png'></image>
+      </view>
+  
+  </view>
+
+
+    <view class="jobList">
+
+      <view class="jobImage">
+        <image src="../../img/img1.jpg"></image>
+      </view>
+
+      <view class="jobTitle">
+        <view class="jobTitle11">
+            <text class="jobTitle1">索菲特国际酒店巴拉巴拉巴拉索菲特国际酒店巴拉巴拉巴拉</text>
+        </view>
+        <view class="jobTitle2">
+            <text style='margin-left:0'>工作时间:</text>
+            <text class="jobTime">9-13(周四)7：00-23：00</text>
+        </view>
+        <view class="jobTitle2">
+            <text class='classA'>A</text>
+            <text class="jobTime">性别:男</text>
+        </view>
+      
+         <view class="jobTitle3">
+            <image src="../../img/addr.png"></image>
+            <text class="jobAddr">金水区，金水路城东路东南角水路城东路东南角</text>
+         </view>
+         
+      </view>
+
+      <view class="jobPrice">
+        <view>
+          <text class="jobPriceTextPrice">11</text>
+          <text class="jobPriceTextTime">/时</text>
+        </view>
+        <view class="jobAddrKm"><text>12.96km</text></view>
+      </view>
+
+      <view class="allin">
+          <image src='../../img/allin.png'></image>
+      </view>
+  
+  </view>
+
+  
+
+
+  <view class='search'>
+
+  </view>
+  
+
+  
+
+
+
+
+
+
+  
+ 
+</view>
+
+
+
+
+
+
+<!-- 加载动画 -->
+<view class="body-view">
+  <loading hidden="{{hidden}}" bindchange="loadingChange">
+    加载中...
+  </loading>
+</view>

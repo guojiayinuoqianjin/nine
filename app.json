@@ -1,0 +1,39 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/job/job"
+  ],
+  "tabBar": {
+    "color": "#dddddd",
+    "selectedColor": "#3D91F6",
+    "borderStyle": "black",
+    "backgroundColor": "#f4f4f4",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "img/home-1.png",
+        "selectedIconPath": "img/home.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/job/job",
+        "iconPath": "img/jianzhi-1.png",
+        "selectedIconPath": "img/jianzhi.png",
+        "text": "全部兼职"
+      }
+      ,
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "img/my-1.png",
+        "selectedIconPath": "img/my.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#3D91F6",
+    "navigationBarTitleText": "9点兼职",
+    "navigationBarTextStyle":"#ffffff"
+  }
+}

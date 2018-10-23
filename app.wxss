@@ -1,0 +1,83 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.clear {
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.clearfix:before, .clearfix:after {
+    content: '.';
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    font-size: 0;
+    line-height: 0;
+    width: 0;
+    height: 0;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+/* 列表 */
+.content{
+  background-color: #EFF3F4;
+}
+.movie{
+  padding:10px;
+  font-size:14px;
+  clear:both;
+  background-color:#fff;
+  width:90%;
+  margin:0 auto;
+  margin-top:10px;
+  box-shadow: 8px 8px 5px #888888;
+}
+.movie .movie-info{
+  width:61%;
+  float: left;
+}
+.movie .pic{
+  float: left;
+}
+.movie .pic image{
+  width:110px;
+  height:165px;
+
+}
+.base-info{
+  padding: 10px;
+}
+.base-info view{
+  line-height:20px;
+}
+.title{
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.cont {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.hr{
+  width:100%;
+  height: 10px;
+}

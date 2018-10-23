@@ -1,0 +1,172 @@
+page{
+  background-color: #f4f4f4;
+  font-family: "PingFang SC";
+}
+
+.header-search{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:44px;
+  background-color:#3D91F6;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 999;
+}
+.none{
+  background: none !important;
+}
+.header-search input{
+  width:76%;
+  height:32px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding:0 30px;
+  font-size: 28rpx;
+  position:relative;
+
+}
+.header-search input image{
+  width:20px;
+  height:22px;
+  margin-top:4px;
+  position:absolute;
+  top:0;
+  left:5px;
+}
+.pla-input{
+  font-size: 28rpx;
+}
+.lu,.message{
+  width:12%;
+  height: 50px;
+  text-align: center;
+}
+.lu image{
+  width:40px;
+  height:40px;
+  margin-top:5px
+}
+
+
+swiper{
+  height:8.5rem;
+}
+swiper image{
+  width: 100%;
+  height:100%;
+}
+.indexTab{
+  width: 100%;
+  height:2.8rem;
+  background-color:#ffffff;
+  display: flex;
+ margin-bottom: .5rem;
+}
+.tabImage image{
+  width: 1.2rem;
+  height:1.2rem;
+}
+.tabImage1{
+  border-right: #f4f4f4;
+}
+.tabImage{
+   flex-direction: row;
+   width:50%;
+   padding-top:.8rem;
+   text-align: center;
+}
+.tabImage text{
+  font-size: .8rem;
+  margin-left: .8rem;
+  vertical-align: .25rem;
+}
+
+/* 列表 */
+.jobList{
+  padding: .3rem;
+  display: flex;
+  background-color: #ffffff;
+ border-bottom: 1px solid #f4f4f4;
+ position: relative;
+}
+.jobImage,.jobTitle,.jobPrice{
+  flex-direction: row;
+}
+.jobImage{width: 25%;margin-top: .5rem;}
+.jobTitle{width: 60%;margin-top: .5rem;}
+.jobPrice{width: 15%;margin-top: .5rem;}
+.jobImage image{
+ width:4rem;
+  height:4.9rem;
+  margin:.2rem;
+
+}
+.jobTitle1{
+  display: inline-block;
+  width: 100%;
+  font-size: 0.8rem;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  font-weight: bold;
+}
+.jobTitle2,.jobTitle11,.jobTitle3{
+  height:1.2rem;
+}
+.jobTitle2 image{
+  width:0.8rem;
+  height:0.8rem;
+}
+.jobTitle3 image{
+  width:0.75rem;
+  height:0.8rem;
+}
+.jobTitle2 text,.jobTitle3 text{
+  font-size: 0.6rem;
+  vertical-align: .16rem;
+  margin-left: .5rem;
+}
+.jobTitle3{
+   display: inline-block;
+  width: 100%;
+  font-size: 0.8rem;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.jobPriceTextPrice{
+  color:#3D91F6;
+  font-size: 1.5rem;
+}
+.jobPriceTextTime{
+  font-size: .6rem;
+}
+.jobAddrKm text{
+  font-size: .6rem;
+}
+.jobPrice{
+  margin-left: .5rem;
+}
+.classA{
+  border:1px solid #3D91F6;
+  width: 0.4rem;
+  height: 0.4rem;
+  color: #3D91F6;
+  text-align: center;
+  line-height: 0.4rem;
+  padding:0 .25rem;
+  margin-left: 0 !important;
+}
+.jobTitle3{margin-top: .5rem;}
+.allin{
+  position: absolute;
+  right:0;
+  top:0;
+}
+.allin image{
+  width: 2rem;
+  height:2rem;
+}
