@@ -1,0 +1,108 @@
+<view class='content'>
+  <view class='section'>
+      <view class="tab">
+            <picker class='pickerImg' bindchange="bindPickerChange" value="{{index}}" range="{{array}}" mode = "selector">
+              <view class="picker">
+                {{array[index]}}<image src="../../img/downlist.png" class="downlistImg"/>
+              </view>
+              
+            </picker>
+        </view>
+        <view class="tab">
+            <picker class='pickerImg' mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+              <view class="picker">
+                 {{date}}<image src="../../img/downlist.png" class="downlistImg"/>
+              </view>
+            </picker>
+        </view>
+  </view>
+
+    <view class='contList'>
+        <view class="jobList">
+
+          <view class="jobImage">
+            <image src="../../img/img1.jpg"></image>
+          </view>
+
+          <view class="jobTitle">
+            <view class="jobTitle11">
+                <text class="jobTitle1">索菲特国际酒店巴拉巴拉巴拉索菲特国际酒店巴拉巴拉巴拉</text>
+            </view>
+            <view class="jobTitle2">
+                <text style='margin-left:0'>工作时间:</text>
+                <text class="jobTime">9-13(周四)7：00-23：00</text>
+            </view>
+            <view class="jobTitle2">
+                <text class='classA'>A</text>
+                <text class="jobTime">性别:男</text>
+            </view>
+          
+            <view class="jobTitle3">
+                <image src="../../img/addr.png"></image>
+                <text class="jobAddr">金水区，金水路城东路东南角水路城东路东南角</text>
+            </view>
+            
+          </view>
+
+          <view class="jobPrice">
+            <view>
+              <text class="jobPriceTextPrice">11</text>
+              <text class="jobPriceTextTime">/时</text>
+            </view>
+            <view class="jobAddrKm"><text>12.96km</text></view>
+          </view>
+
+          <view class="allin">
+              <image src='../../img/allin.png'></image>
+          </view>
+      
+      
+        </view>
+
+        
+         <view class="jobList">
+
+          <view class="jobImage">
+            <image src="../../img/img1.jpg"></image>
+          </view>
+
+          <view class="jobTitle">
+            <view class="jobTitle11">
+                <text class="jobTitle1">索菲特国际酒店巴拉巴拉巴拉索菲特国际酒店巴拉巴拉巴拉</text>
+            </view>
+            <view class="jobTitle2">
+                <text style='margin-left:0'>工作时间:</text>
+                <text class="jobTime">9-13(周四)7：00-23：00</text>
+            </view>
+            <view class="jobTitle2">
+                <text class='classA'>A</text>
+                <text class="jobTime">性别:男</text>
+            </view>
+          
+            <view class="jobTitle3">
+                <image src="../../img/addr.png"></image>
+                <text class="jobAddr">金水区，金水路城东路东南角水路城东路东南角</text>
+            </view>
+            
+          </view>
+
+          <view class="jobPrice">
+            <view>
+              <text class="jobPriceTextPrice">11</text>
+              <text class="jobPriceTextTime">/时</text>
+            </view>
+            <view class="jobAddrKm"><text>12.96km</text></view>
+          </view>
+
+          <view class="allin">
+              <image src='../../img/allin.png'></image>
+          </view>
+      
+      
+        </view>
+    </view>
+    
+    
+     
+      
+</view>
