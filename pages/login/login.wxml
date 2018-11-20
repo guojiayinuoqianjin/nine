@@ -1,0 +1,18 @@
+<view class='section'>
+  <view class='loginForm'>
+      <image src="../../img/myJob.png" class='phoneImg'></image>
+      <input placeholder='请输入你的手机号'></input>
+  </view>
+  <view class='loginForm'>
+      <image src="../../img/pwd.png" class='phoneImg'></image>
+      <input placeholder='请输入你的密码'></input>
+  </view>
+
+  <view class='forget'>
+    <view class='forgetPwd' bindtap='goForgetPwd'>忘记密码</view>
+    <view class='reg' bindtap='goReg'>去注册</view>
+  </view>
+
+  <view class='submit'>登录</view>
+
+</view>

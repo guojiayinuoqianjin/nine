@@ -6,7 +6,12 @@
     "pages/emejob/emejob",
     "pages/detail/detail",
     "pages/search/search",
-    "pages/collection/collection"
+    "pages/collection/collection",
+    "pages/my/my",
+    "pages/login/login",
+    "pages/forgetPwd/forgetPwd",
+    "pages/reg/reg",
+    "pages/imformation/imformation"
   ],
   "tabBar": {
     "color": "#dddddd",
@@ -28,7 +33,7 @@
       }
       ,
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/my/my",
         "iconPath": "img/my-1.png",
         "selectedIconPath": "img/my.png",
         "text": "我的"

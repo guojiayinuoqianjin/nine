@@ -1,0 +1,27 @@
+.section{padding: 30rpx;}
+.phoneImg{width: 50rpx;height:50rpx;margin-right:20rpx;}
+.loginForm{display: flex;flex-direction: row;border-bottom: 1px solid #f2f2f2;padding-bottom: 20rpx;padding-top: 20rpx;font-size: 30rpx;}
+.forget{display: flex;flex-direction: row;margin-top: 30rpx;}
+.forgetPwd,.reg{width: 50%;font-size: 30rpx;color: #3d91f6;}
+.forgetPwd{text-align: left;}
+.reg{text-align: right;}
+.submit{width:500rpx;height:100rpx;background-color: #3d91f6;color: #ffffff;text-align: center;
+line-height:100rpx;border-radius: 10rpx;margin:80rpx auto;}
+.getCodeBtn{
+  width: 200rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  background-color: #3d91f6;
+  color: #ffffff;
+  border-radius: 10rpx;
+  text-align: center;
+  margin-left: 50rpx;
+}
+.imformation{
+  text-align: center;
+  font-size: 28rpx;
+  color: #808080;
+}
+.imformation text{
+  color: #3d91f6;
+}

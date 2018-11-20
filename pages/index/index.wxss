@@ -24,7 +24,7 @@ page{
   background-color: #ffffff;
   border-radius: 16px;
   padding:0 30px;
-  font-size: 28rpx;
+  font-size: 28rpx;pagepage
   position:relative;
 
 }
@@ -83,7 +83,7 @@ swiper image{
   margin-left: .8rem;
   vertical-align: .25rem;
 }
-.setSearch{position: absolute;right:25rpx;top: 15rpx;}
+.setSearch{position: absolute;right:90rpx;top: 24rpx;}
 
 /* 列表 */
 .jobList{
