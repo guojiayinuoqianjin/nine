@@ -3,10 +3,11 @@
  <!--顶部搜索和消息中心-->
   <view class="header-search {{scrollTop==0?'none':''}}">
     <view class="lu"></view>
-    <input placeholder='请输入你要搜索的产品' placeholder-class='pla-input' bindfocus="goSearch">
-        <text>郑州</text>
+    <input placeholder='请输入你要搜索的产品' placeholder-class='pla-input' >
         <image src="../../img/search.png" mode="aspectFit"></image>
+        <text class='setSearch'>搜索</text>
     </input>
+  
     <view class="message" bindtap="goMessageCenter"></view>
   </view>
 
@@ -22,17 +23,21 @@
   </swiper>
 
   <view class="indexTab">
-      <view class="tabImage">
+      <view class="tabImage" bindtap='goMyjob'>
         <image class="tabImage1" src="../../img/myJob.png"></image>
         <text>我的职位</text>
       </view>
-      <view class="tabImage">
+      <view class="tabImage" bindtap='goEmejob'>
         <image src="../../img/job.png"></image>
         <text>急招岗位</text>
       </view>
+       <view class="tabImage" bindtap='goMyCollection'>
+        <image class="tabImage1" src="../../img/heart.png"></image>
+        <text>我的收藏</text>
+      </view>
   </view>
 
-  <view class="jobList">
+  <view class="jobList" bindtap='goDetail'>
 
       <view class="jobImage">
         <image src="../../img/img1.jpg"></image>

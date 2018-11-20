@@ -14,17 +14,12 @@ Page({
     interval: 3000,
     duration: 1000,
     circular: true,
-    hidden: true,
-    scrollTop: 0,       //控制顶部搜索框的背景
-
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 页面初始化 options为页面跳转所带来的参数
-    
     
   },
 
@@ -60,7 +55,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+   
   },
 
   /**
@@ -74,42 +69,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    return {
-      title: '9点兼职',
-      desc: '9点兼职，大家都选择的兼职平台',
-      path: '/pages/index/index'
-    }
-  },
-  
- 
-   onPageScroll: function(e) {
-     this.setData({
-       scrollTop: e.scrollTop
-     })
-  },
-
-  goMyjob:function(){
-    wx.navigateTo({
-      url: '../../pages/myjob/myjob',
-    })
-  },
-  goEmejob:function(){
-    wx.navigateTo({
-      url: '../../pages/emejob/emejob',
-    })
-  },
-  goDetail:function(){
-    wx.navigateTo({
-      url: '../../pages/detail/detail',
-    })
-  },
-  goMyCollection:function(){
-    wx.navigateTo({
-      url: '../../pages/collection/collection',
-    })
+    
   }
-
-
-
-
 })

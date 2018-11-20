@@ -1,7 +1,12 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/job/job"
+    "pages/job/job",
+    "pages/myjob/myjob",
+    "pages/emejob/emejob",
+    "pages/detail/detail",
+    "pages/search/search",
+    "pages/collection/collection"
   ],
   "tabBar": {
     "color": "#dddddd",
