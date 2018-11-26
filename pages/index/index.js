@@ -1,14 +1,13 @@
+var url = require('../../utils/request.js');
+var network = require('../../utils/util.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      '../../public/img1.jpg',
-      '../../public/img2.jpg',
-      '../../public/img3.jpg'
-    ],
+    data:"",
+    imgUrls: [],
     indicatorDots: true,
     autoplay: true,
     interval: 3000,
@@ -24,7 +23,7 @@ Page({
    */
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
-    
+    this.getData();
     
   },
 
@@ -87,6 +86,34 @@ Page({
        scrollTop: e.scrollTop
      })
   },
+
+
+  //获取职位数据
+  getData:function(){
+    var page = this;
+    var getDataUrl = url.data + "/mobile/job/indexJob";
+    var param = {};
+    network.requestData('GET', param, getDataUrl, function (obj) {
+      console.log(obj);
+      page.setData({ 
+        data: obj.object,
+        imgUrls:obj.object.imgList
+        });
+    });
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   goMyjob:function(){
     wx.navigateTo({
