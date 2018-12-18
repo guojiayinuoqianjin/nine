@@ -3,17 +3,22 @@
     autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" >
     <block wx:for="{{imgUrls}}">
       <swiper-item>
-        <image src="../../img/img1.jpg" class="slide-image" width="355" height="150"/>
+        <image src="{{data.picUrl}}" class="slide-image" width="355" height="150"/>
       </swiper-item>
     </block>
   </swiper>
   <view class='header'>
-      <view class='title'><text>希尔顿酒店(女)宴会带身份证</text></view>
-      <view class='titleMsg'><text class='titleMsgTime'>11.0/<text class='titleMsgTimeTitle'>时</text></text><text class='titleMsgType'>服务员</text></view>
+      <view class='title'><text>{{data.name}}</text></view>
+      <view class='titleMsg'>
+            <text class='titleMsgTime'>
+              {{data.salary}}/<text wx:if="{{data.salaryUnit==1}}" class='titleMsgTimeTitle'>餐</text><text wx:if="{{data.salaryUnit!=1}}" class='titleMsgTimeTitle'>时</text>
+            </text>
+            <text class='titleMsgType'>服务员</text>
+      </view>
       <view class='detailNum'>
-          <view class='detailList'>性别： <text>女</text></view>
-          <view class='detailList'>招聘： <text>3人</text></view>
-          <view class='detailList'>报名： <text>2人</text></view>
+          <view class='detailList'>性别： <text>{{data.genderReqStr}}</text></view>
+          <view class='detailList'>招聘： <text>{{data.recruitNum}}人</text></view>
+          <view class='detailList'>报名： <text>{{data.applyNum}}人</text></view>
       </view>
   </view>
 
@@ -21,13 +26,13 @@
 
   <view class='jobCont'>
       <view class='jobContList'>
-          <view>工作时间： <text>10-18(周四)08：00-18：00</text></view> 
+          <view>工作时间： <text>{{data.workDateStr}}</text></view> 
       </view>
       <view class='jobContList'>
-          <view>工作地点： <text>郑州市金水区未来东路100米路北</text></view> 
+          <view>工作地点： <text>{{data.address}}</text></view> 
       </view>
       <view class='jobContList'>
-          <view>用户级别： <text class='classA'>A</text></view> 
+          <view>用户级别： <text class='classA'>{{data.user_level}}</text></view> 
       </view>
   </view>
 
@@ -36,7 +41,7 @@
   <view class="remarks">
     <view class="remarksText">备注</view>
     <view class="remarksCont">
-    用户与操作系统的每一次交互都是一个场景，例如：打电话、发短信等有节目的场景（Activity），后台播放音乐等没有节目的场景（Service），这种交互的场景（Activity、Service等）都被 抽象成了上下     文环境（Context），它代表了当前对象再应用中所处的一个环境、一个与系统交互的过程。
+    {{data.jobDes}}
     </view>
   </view>
 
@@ -45,7 +50,7 @@
   <view class="remarks">
     <view class="remarksText">工作要求</view>
     <view class="remarksCont">
-    用户与操作系统的每一次交互都是一个场景，例如：打电话、发短信等有节目的场景（Activity），后台播放音乐等没有节目的场景（Service），这种交互的场景（Activity、Service等）都被 抽象成了上下     文环境（Context），它代表了当前对象再应用中所处的一个环境、一个与系统交互的过程。
+    {{data.jobCon}}
     </view>
   </view>
 
@@ -54,16 +59,16 @@
   <view class="remarksFooter">
     <view class="remarksText">温馨提示</view>
     <view class="remarksCont">
-        <view class="remarksContText">【9点兼职】商家不会向平台用户收取任何费用</view>
-        <view class="remarksContText">如有发现请立即投诉</view>
-        <view class="remarksContText">投诉热线：0371-56002880</view>
+        <view class="remarksContText">{{data.friendlyReminder}}</view>
     </view>
   </view>
 
   <view class='footer'>
     <view class='footerTab footerTab1'><image src="../../img/job.png"></image><text>电话</text></view>
-    <view class='footerTab'><image src="../../img/onheart.png"></image><text>收藏</text></view>
-    <view class='footerTab footerTab2'><text>我要报名</text></view>
+    <view class='footerTab' wx:if="{{data.storeState==false}}"><image src="../../img/onheart.png"></image><text>收藏</text></view>
+    <view class='footerTab' wx:if="{{data.storeState==true}}"><image src="../../img/heart.png"></image><text>已收藏</text></view>
+    <view class='footerTab footerTab3' wx:if="{{data.enough!=0}}"><text>报名已满</text></view>
+    <view class='footerTab footerTab2' wx:if="{{data.enough==0}}"><text>我要报名</text></view>
   </view>
 
 </view>

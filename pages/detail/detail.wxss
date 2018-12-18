@@ -68,3 +68,4 @@ swiper image{
 .footerTab text{font-size: 30rpx;}
 .footerTab1{border-right: 1px solid #F2F2F2;}
 .footerTab2{text-align: center;background-color: #3D91F6;color: #ffffff;width: 50%;}
+.footerTab3{text-align: center;background-color: #dbdbdb;color: #ffffff;width: 50%;}

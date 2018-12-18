@@ -37,7 +37,7 @@
       </view>
   </view>
 
-  <view class="jobList"  wx:for="{{data.jobList}}"   bindtap='goDetail({{item.id}})'>
+  <view class="jobList"  wx:for="{{data.jobList}}"  data-id="{{item.id}}"  bindtap='goDetail'>
 
       <view class="jobImage">
         <image src="{{item.picUrl}}"></image>

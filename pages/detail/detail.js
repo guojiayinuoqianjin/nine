@@ -1,3 +1,5 @@
+var url = require('../../utils/request.js');
+var network = require('../../utils/util.js');
 Page({
 
   /**
@@ -14,13 +16,14 @@ Page({
     interval: 3000,
     duration: 1000,
     circular: true,
+    data:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.getData(options.id);
   },
 
   /**
@@ -70,5 +73,25 @@ Page({
    */
   onShareAppMessage: function () {
     
+  },
+
+  //获取数据
+  getData(id){
+    var page = this;
+    var getDataUrl = url.data + "/mobile/job/jobDetail";
+    var param = {
+      id:id
+    };
+    network.requestData('GET', param, getDataUrl, function (obj) {
+      console.log(obj);
+      page.setData({
+        data: obj.object,
+      });
+    });
   }
+
+
+
+
+
 })

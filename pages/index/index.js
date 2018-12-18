@@ -117,22 +117,23 @@ Page({
 
   goMyjob:function(){
     wx.navigateTo({
-      url: '../../pages/myjob/myjob',
+      url: '/pages/myjob/myjob',
     })
   },
   goEmejob:function(){
     wx.navigateTo({
-      url: '../../pages/emejob/emejob',
+      url: '/pages/emejob/emejob',
     })
   },
-  goDetail:function(){
+  goDetail:function(e){
+    var id=e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../../pages/detail/detail',
+      url: '/pages/detail/detail?id='+id,
     })
   },
   goMyCollection:function(){
     wx.navigateTo({
-      url: '../../pages/collection/collection',
+      url: '/pages/collection/collection',
     })
   }
 
