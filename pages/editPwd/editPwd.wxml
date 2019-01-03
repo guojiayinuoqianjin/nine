@@ -1,0 +1,15 @@
+<view class='section'>
+  <view class='loginForm'>
+      <image src="../../img/myJob.png" class='phoneImg'></image>
+      <input placeholder='请输入旧密码' bindinput='oldPwd'></input>
+  </view>
+ 
+  <view class='loginForm'>
+      <image src="../../img/pwd.png" class='phoneImg'></image>
+      <input placeholder='请输入新密码' bindinput='newPwd'></input>
+  </view>
+
+
+  <view class='submit' bindtap='submit'>重置密码</view>
+
+</view>

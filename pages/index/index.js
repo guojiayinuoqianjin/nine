@@ -15,6 +15,9 @@ Page({
     circular: true,
     hidden: true,
     scrollTop: 0,       //控制顶部搜索框的背景
+    name:"",//搜索框关键字
+    login: wx.getStorageSync("uid"),
+    page:1
 
   },
 
@@ -24,7 +27,14 @@ Page({
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     this.getData();
-    
+    wx.getLocation({
+      type: 'wgs84',
+      success: function (res) {
+        console.log(res);
+        wx.setStorage({key: 'lat',data: res.latitude})
+        wx.setStorage({key: 'lng',data: res.longitude})
+      }
+    })
   },
 
   /**
@@ -66,7 +76,8 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+    var page=this;
+    // page.getPageData();
   },
 
   /**
@@ -92,7 +103,9 @@ Page({
   getData:function(){
     var page = this;
     var getDataUrl = url.data + "/mobile/job/indexJob";
-    var param = {};
+    var param = {
+      page:1
+    };
     network.requestData('GET', param, getDataUrl, function (obj) {
       console.log(obj);
       page.setData({ 
@@ -101,6 +114,21 @@ Page({
         });
     });
   },
+
+  // getPageData(){
+  //   var page = this;
+  //   var getDataUrl = url.data + "/mobile/job/indexJob";
+  //   var param = {
+  //     page: page.data.page+1
+  //   };
+  //   network.requestData('GET', param, getDataUrl, function (obj) {
+  //     console.log(obj);
+  //     page.setData({
+  //       data: page.data.data.jobList.concat(obj.object.jobList),
+  //       imgUrls: obj.object.imgList
+  //     });
+  //   });
+  // },
 
 
 
@@ -116,9 +144,19 @@ Page({
 
 
   goMyjob:function(){
-    wx.navigateTo({
-      url: '/pages/myjob/myjob',
-    })
+   
+    var page=this;
+    console.log(page.data.login);
+    if (page.data.login == undefined || page.data.login==""){
+      wx.showModal({
+        title: '温馨提示',
+        content:"您还未登录，请前去登录",
+      })
+    }else{
+      wx.navigateTo({
+        url: '/pages/myjob/myjob',
+      })
+    }
   },
   goEmejob:function(){
     wx.navigateTo({
@@ -132,8 +170,32 @@ Page({
     })
   },
   goMyCollection:function(){
+    var page = this;
+    if (page.data.login == undefined || page.data.login == "") {
+      wx.showModal({
+        title: '温馨提示',
+        content: "您还未登录，请前去登录",
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/collection/collection',
+      })
+    }
+  },
+
+
+  name(e){
+    var page=this;
+    page.setData({
+      name: e.detail.value
+    });
+  },
+
+  //搜索
+  search(){
+    var page=this;
     wx.navigateTo({
-      url: '/pages/collection/collection',
+      url: '/pages/search/search?name=' + page.data.name,
     })
   }
 

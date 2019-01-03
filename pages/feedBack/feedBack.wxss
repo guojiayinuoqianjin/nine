@@ -1,0 +1,35 @@
+/* pages/feedBack/feedBack.wxss */
+/* pages/resume/resume.wxss */
+.section{
+  padding: .8rem;
+  font-size: .8rem;
+}
+.real_name{
+  display: flex;
+  flex-direction: row;
+  height:2rem;
+  line-height:2rem;
+  border-bottom: 1px solid #ddd;
+}
+.real_name_input{
+  margin-top:.25rem;
+}
+.real_name_text{
+  width: 22%;
+}
+.downlistImg{width:75rpx;height:75rpx;vertical-align: -25rpx}
+.section2{
+  margin-top: .8rem;
+}
+.real_name2{
+  width:100%;
+height:9rem;
+border:1px solid #ddd;
+border-top:none;
+}
+.text_area{
+  width:94%;
+  padding:10px;
+}
+.submit{width:500rpx;height:100rpx;background-color: #3d91f6;color: #ffffff;text-align: center;
+line-height:100rpx;border-radius: 10rpx;margin:20rpx auto;}

@@ -1,11 +1,11 @@
 <view class='section'>
   <view class='loginForm'>
       <image src="../../img/myJob.png" class='phoneImg'></image>
-      <input placeholder='请输入你的手机号'></input>
+      <input placeholder='请输入你的手机号' bindinput='phoneNumber'></input>
   </view>
   <view class='loginForm'>
       <image src="../../img/pwd.png" class='phoneImg'></image>
-      <input placeholder='请输入你的密码'></input>
+      <input placeholder='请输入你的密码' bindinput='password'></input>
   </view>
 
   <view class='forget'>
@@ -13,6 +13,6 @@
     <view class='reg' bindtap='goReg'>去注册</view>
   </view>
 
-  <view class='submit'>登录</view>
+  <view class='submit' bindtap='submit'>登录</view>
 
 </view>

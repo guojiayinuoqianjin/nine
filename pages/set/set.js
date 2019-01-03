@@ -1,19 +1,18 @@
-var url = require('../../utils/request.js');
-var network = require('../../utils/util.js');
+// pages/set/set.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    data: ''
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getData();
+
   },
 
   /**
@@ -64,25 +63,14 @@ Page({
   onShareAppMessage: function () {
 
   },
-
-  getData() {
-    var page = this;
-    var getDataUrl = url.data + "/mobile/store/findStoreJob"
-    var param = {
-
-    };
-    network.requestData('GET', param, getDataUrl, function (obj) {
-      console.log(obj);
-      page.setData({
-        data: obj.object,
-      });
-    });
-  },
-  //跳转详情
-  goDetail(e) {
-    var id = e.currentTarget.dataset.id;
+  goEditPwd(){
     wx.navigateTo({
-      url: '/pages/detail/detail?id=' + id,
+      url: '/pages/editPwd/editPwd',
+    })
+  },
+  aboutUs(){
+    wx.navigateTo({
+      url: '/pages/about/about',
     })
   }
 })

@@ -1,18 +1,18 @@
 <view class='section'>
-  <view class='cont' wx:if="{{login==false}}">
+  <view class='cont' wx:if="{{login==true}}">
       <view class='header'>
           <text>9点兼职</text>
       </view>
       <view class='login' bindtap='goLogin'>
-          <text>去登录</text>
+           <button class='loginButton' open-type="getUserInfo" bindgetuserinfo='wxLogin'>去登录</button>
       </view>
   </view>
 
-  <view  class='myCont'  wx:if="{{login==true}}">
+  <view  class='myCont'  wx:if="{{login==false}}">
       <view class='head'> 
           <view class='headImg'>
-              <image src="../../img/normol.png" mode="aspectFit"></image>
-              <text>18812346688</text>
+              <image src="{{imgUrl}}" mode="aspectFit"></image>
+              <text>{{setPhone}}</text>
           </view>
       </view>
   </view>
@@ -33,12 +33,12 @@
         <text>邀请好友</text>
         <image class="tabImage2" src="../../img/right.png"></image>
       </view>
-      <view class="tabImage" bindtap='goMyCollection'>
+      <view class="tabImage" bindtap='goFeedBack'>
         <image class="tabImage1" src="../../img/idea.png"></image>
         <text>意见反馈</text>
         <image class="tabImage2" src="../../img/right.png"></image>
       </view>
-      <view class="tabImage" bindtap='goMyCollection'>
+      <view class="tabImage" bindtap='goSet'>
         <image class="tabImage1" src="../../img/set.png"></image>
         <text>设置</text>
         <image class="tabImage2" src="../../img/right.png"></image>

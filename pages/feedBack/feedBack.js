@@ -6,14 +6,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    data: ''
+    content:"",
+    phoneNumber:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getData();
+
   },
 
   /**
@@ -65,24 +66,48 @@ Page({
 
   },
 
-  getData() {
-    var page = this;
-    var getDataUrl = url.data + "/mobile/store/findStoreJob"
-    var param = {
-
-    };
-    network.requestData('GET', param, getDataUrl, function (obj) {
-      console.log(obj);
-      page.setData({
-        data: obj.object,
-      });
+  content(e){
+    this.setData({
+      content: e.detail.value
     });
   },
-  //跳转详情
-  goDetail(e) {
-    var id = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '/pages/detail/detail?id=' + id,
-    })
+  phoneNumber(e){
+    this.setData({
+      phoneNumber: e.detail.value
+    });
+  },
+
+  submit(){
+    var page = this;
+    var getDataUrl = url.data + "/mobile/user/feedback";
+    var param = {
+      content: page.data.content,
+      phoneNumber: page.data.phoneNumber
+    }
+    network.requestData('POST', param, getDataUrl, function (obj) {
+      console.log(obj);
+      if (obj.result == 1) {
+        wx.showModal({
+          title: '温馨提示',
+          content: obj.msg,
+          success(res) {
+            if (res.confirm) {
+              wx.switchTab({
+                url: '/pages/my/my',
+              });
+            } else if (res.cancel) { }
+          }
+        })
+      }else{
+        wx.showModal({
+          title: '温馨提示',
+          content: obj.msg,
+          success(res) {
+            if (res.confirm) {} else if (res.cancel) { }
+          }
+        })
+      }
+
+    });
   }
 })

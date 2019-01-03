@@ -23,13 +23,13 @@ function requestData(method, params, url, cb) {
     headObj = {
       'content-type': 'application/json', //默认值
       "deviceType": 'xcx',
-      'Cookie': 'SHAREJSESSIONID=' + wx.getStorageSync('Cookie')
+      'Cookie': 'uid=' + wx.getStorageSync('uid'),
     }
   } else if (method == 'POST') {
     headObj = {
       'content-type': 'application/x-www-form-urlencoded',
       "deviceType": 'xcx',
-      'Cookie': 'SHAREJSESSIONID=' + wx.getStorageSync('Cookie')
+      'Cookie': 'uid=' + wx.getStorageSync('uid'),
     }
   }
   wx.request({

@@ -4,14 +4,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    login:true,
+    login:"",
+    phone:wx.getStorageSync("phone"),
+    setPhone: wx.getStorageSync("nickname"),
+    imgUrl: wx.getStorageSync("avatarUrl")
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var page=this;
+    page.isLogin();
   },
 
   /**
@@ -25,7 +29,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    var page = this;
+    page.isLogin();
   },
 
   /**
@@ -64,9 +69,49 @@ Page({
   },
 
 
-  goLogin(){
+  wxLogin(res){
+    console.log(res);
+    wx.setStorage({ key: "avatarUrl", data: res.detail.userInfo.avatarUrl })//本地存储微信头像
     wx.navigateTo({
       url: '../../pages/login/login',
+    })
+  },
+
+
+  //验证是否登录
+
+  isLogin(){
+    var page=this;
+    var login = wx.getStorageSync("uid");
+      console.log(login);
+    if (login == undefined || login==""){
+          page.setData({
+            login:true
+          });
+      }else{
+        page.setData({
+          login: false
+        });
+      }
+  },
+
+
+  //我的简历
+  goMyjob(){
+    wx.navigateTo({
+      url: '/pages/resume/resume',
+    })
+  },
+  //意见反馈
+  goFeedBack(){
+    wx.navigateTo({
+      url: '/pages/feedBack/feedBack',
+    })
+  },
+  //设置
+  goSet(){
+    wx.navigateTo({
+      url: '/pages/set/set',
     })
   }
 })

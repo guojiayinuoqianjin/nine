@@ -3,9 +3,9 @@
  <!--顶部搜索和消息中心-->
   <view class="header-search {{scrollTop==0?'none':''}}">
     <view class="lu"></view>
-    <input placeholder='请输入你要搜索的产品' placeholder-class='pla-input' >
-        <image src="../../img/search.png" mode="aspectFit"></image>
-        <text class='setSearch'>搜索</text>
+    <input placeholder='请输入你要搜索的产品' bindinput='name' placeholder-class='pla-input' >
+        <!-- <image src="../../img/search.png" mode="aspectFit"></image> -->
+        <text class='setSearch' bindtap='search'>搜索</text>
     </input>
   
     <view class="message" bindtap="goMessageCenter"></view>
@@ -73,6 +73,9 @@
 
       <view class="allin" wx:if="{{item.enough==1}}" >
           <image src='../../img/allin.png'></image>
+      </view>
+      <view class="allin" wx:if="{{item.overdue==1}}" >
+          <image src='../../img/overdue.png'></image>
       </view>
   
   

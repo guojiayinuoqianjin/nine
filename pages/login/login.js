@@ -1,10 +1,13 @@
+var url = require('../../utils/request.js');
+var network = require('../../utils/util.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    phoneNumber:"",
+    password:""
   },
 
   /**
@@ -70,6 +73,45 @@ Page({
   goReg(){
     wx.navigateTo({
       url: '../../pages/reg/reg',
+    })
+  },
+
+  phoneNumber(e){
+    var page = this;
+    page.setData({
+      phoneNumber: e.detail.value
+    })
+  },
+
+  password(e){
+    var page=this;
+    page.setData({
+      password:e.detail.value
+    });
+  },
+  //登录
+  submit(){
+    var page = this;
+    var getDataUrl = url.data + "/mobile/login";
+    var param = {
+      phoneNumber: page.data.phoneNumber,
+      password: page.data.password
+    };
+    wx.request({
+      url: getDataUrl,
+      data: param,
+      method: "GET",
+      success: function (res) {
+        console.log(res);
+        wx.setStorage({ key: "JSESSIONID", data: res.cookies[0].value });
+        wx.setStorage({ key: "uid", data: res.cookies[1].value });
+        wx.setStorage({ key: "imgUrl", data: res.data.object.imgUrl });
+        wx.setStorage({ key: "nickname", data: res.data.object.nickname });
+        wx.setStorage({ key: "phone", data: res.data.object.phone });
+        wx.switchTab({
+          url: '/pages/index/index',
+        });
+      }
     })
   }
 })

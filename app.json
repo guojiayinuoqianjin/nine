@@ -11,7 +11,12 @@
     "pages/login/login",
     "pages/forgetPwd/forgetPwd",
     "pages/reg/reg",
-    "pages/imformation/imformation"
+    "pages/imformation/imformation",
+    "pages/resume/resume",
+    "pages/feedBack/feedBack",
+    "pages/set/set",
+    "pages/editPwd/editPwd",
+    "pages/about/about"
   ],
   "tabBar": {
     "color": "#dddddd",

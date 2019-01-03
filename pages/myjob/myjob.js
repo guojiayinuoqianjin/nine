@@ -1,17 +1,19 @@
+var url = require('../../utils/request.js');
+var network = require('../../utils/util.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    data:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.getData();
   },
 
   /**
@@ -61,5 +63,26 @@ Page({
    */
   onShareAppMessage: function () {
     
+  },
+
+  getData(){
+    var page = this;
+    var getDataUrl = url.data + "/mobile/ea/eaRecord"
+    var param = {
+    
+    };
+    network.requestData('GET', param, getDataUrl, function (obj) {
+      console.log(obj);
+      page.setData({
+        data: obj.object,
+      });
+    });
+  },
+  //跳转详情
+  goDetail(e) {
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/detail/detail?id=' + id,
+    })
   }
 })

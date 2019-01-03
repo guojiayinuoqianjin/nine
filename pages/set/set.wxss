@@ -1,17 +1,3 @@
-.cont{
-  background-color: #3D91F6;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  color: #ffffff;
-}
-.header{text-align: center;margin-top: 100rpx;}
-.header text{font-size: 48rpx;}
-.login{text-align: center;margin-top: 150rpx;}
-.head{height: 270rpx;background-color: #3D91F6;}
-.headImg image{width:120rpx;height:120rpx;display: block;margin: 0rpx auto;border-radius: 120rpx;}
-.headImg{text-align:center;padding-top: 20rpx;color: #ffffff;}
-.headImg text{font-size: 24rpx;margin-top: 20rpx;}
 .indexTab{
   width: 100%;
   height:2.8rem;

@@ -1,0 +1,14 @@
+ <view class="indexTab">
+      <view class="tabImage" bindtap='goEditPwd'>
+        <image class="tabImage1" src="../../img/set.png"></image>
+        <text>修改密码</text>
+        <image class="tabImage2" src="../../img/right.png"></image>
+      </view>
+
+      <view class="tabImage" bindtap='aboutUs'>
+        <image class="tabImage1" src="../../img/idea.png"></image>
+        <text>关于我们</text>
+        <image class="tabImage2" src="../../img/right.png"></image>
+      </view>
+      
+  </view>
