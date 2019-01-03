@@ -88,6 +88,21 @@ Page({
         data: obj.object,
       });
     });
+  },
+
+  add(e){
+    var id = e.currentTarget.dataset.id;
+    var getDataUrl = url.data + "/mobile/ea/addEa";
+    var param = {
+      job: id
+    };
+    network.requestData('POST', param, getDataUrl, function (obj) {
+      console.log(obj);
+      // page.setData({
+      //   data: obj.object,
+      // });
+    });
+
   }
 
 
