@@ -1,1 +1,18 @@
+<view>
+  <view class='logo'>
+      <image src='/img/logo.png'></image>
+      <view>9点招聘</view>
+  </view>
 
+  <view class='msg'>
+      【9点招聘】
+是由河南九点信息科技有限公司自主研发，
+专为兼职工提供灵活性工作的兼职平台，
+用户可自由选择，安全靠谱的酒店兼职。
+  </view>
+
+
+  <view class='footer'>技术支持:Full Stack Developer</view>
+  <view  class='footer2'>联系方式:453086912(QQ)</view>
+
+</view>

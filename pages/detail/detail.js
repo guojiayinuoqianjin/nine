@@ -16,13 +16,17 @@ Page({
     interval: 3000,
     duration: 1000,
     circular: true,
-    data:""
+    data:"",
+    jobId:"",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      jobId: options.id
+    });
     this.getData(options.id);
   },
 
@@ -94,7 +98,7 @@ Page({
     var id = e.currentTarget.dataset.id;
     var getDataUrl = url.data + "/mobile/ea/addEa";
     var param = {
-      job: id
+      jobId: id
     };
     network.requestData('POST', param, getDataUrl, function (obj) {
       console.log(obj);
@@ -103,6 +107,62 @@ Page({
       // });
     });
 
+  },
+
+  //收藏
+  store(e){
+    var page=this;
+    console.log(e);
+    var id=e.currentTarget.dataset.id;
+    var getDataUrl = url.data + "/mobile/user/addStore"; 
+    var param = {
+      jobId: id
+    };
+    network.requestData('POST', param, getDataUrl, function (obj) {
+      console.log(obj);
+      if(obj.result==1){
+        wx.showToast({
+          title: obj.msg,
+          mask: true,
+          icon: 'success'
+        })
+        page.getData(page.data.jobId);
+      }else{
+        wx.showToast({
+          title: obj.msg,
+          mask: true,
+          icon: 'success'
+        })
+      }
+    });
+  },
+  //取消收藏
+
+  on_store(e){
+    var page = this;
+    console.log(e);
+    var id = e.currentTarget.dataset.id;
+    var getDataUrl = url.data + "/mobile/user/canStore";
+    var param = {
+      jobId: id
+    };
+    network.requestData('POST', param, getDataUrl, function (obj) {
+      console.log(obj);
+      if (obj.result == 1) {
+        wx.showToast({
+          title: obj.msg,
+          mask: true,
+          icon: 'success'
+        })
+        page.getData(page.data.jobId);
+      } else {
+        wx.showToast({
+          title: obj.msg,
+          mask: true,
+          icon: 'success'
+        })
+      }
+    });
   }
 
 

@@ -1,1 +1,35 @@
 /* pages/about/about.wxss */
+.logo{
+  text-align:center;
+  margin-top:5rem;
+  font-size: .8rem;
+}
+.logo image{
+  width:4rem;
+  height:4rem;
+}
+.logo view{
+  margin-top: .5rem;
+}
+.msg{
+  font-size:.8rem;
+  padding:.8rem;
+  text-align:justify;
+  line-height:1.5rem;
+}
+.footer,.footer2{
+  font-size:.8rem;
+  text-align: center;
+}
+.footer{
+  position:absolute;
+  bottom:1rem;
+  margin:2rem auto;
+  left: 4rem;
+}
+.footer2{
+  position:absolute;
+  bottom:0rem;
+  margin:2rem auto;
+  left: 5rem;
+}
