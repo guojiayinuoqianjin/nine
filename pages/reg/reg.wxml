@@ -1,25 +1,25 @@
 <view class='section'>
   <view class='loginForm'>
       <image src="../../img/myJob.png" class='phoneImg'></image>
-      <input placeholder='请输入你的手机号'></input>
+      <input placeholder='请输入你的手机号' bindinput='phoneNumber'></input>
   </view>
   <view class='loginForm'>
       <image src="../../img/phone.png" class='phoneImg'></image>
-      <input placeholder='请输入验证码'></input>
-      <view class='getCodeBtn' bindtap='countDown' wx:if="{{yzm}}">获取验证码</view>
+      <input placeholder='请输入验证码' bindinput='code'></input>
+      <view class='getCodeBtn' bindtap='countDownMsg' wx:if="{{yzm}}">获取验证码</view>
       <view class='getCode' wx:else>{{time}}秒后重新获取</view>
   </view>
   <view class='loginForm'>
       <image src="../../img/pwd.png" class='phoneImg'></image>
-      <input placeholder='请输入6-12位字母、数字'></input>
+      <input placeholder='请输入6-12位字母、数字' bindinput='password'></input>
   </view>
   <view class='loginForm'>
       <image src="../../img/pwd.png" class='phoneImg'></image>
-      <input placeholder='请再次输入密码'></input>
+      <input placeholder='请再次输入密码' bindinput='again_password'></input>
   </view>
   <view class='loginForm'>
       <image src="../../img/pwd.png" class='phoneImg'></image>
-      <input placeholder='邀请码可不填写'></input>
+      <input placeholder='邀请码可不填写' bindinput='yq_code'></input>
   </view>
 
 

@@ -1,0 +1,24 @@
+<view>
+  <image class='insImg' src='/img/time.jpg'></image>
+</view>
+<view  class='tabFather'>
+    <view class='tab'>
+      <view class='tab1'>0</view>
+      <view>总收入元</view>
+    </view>
+    <view class='tab'>
+      <view class='tab1'>0</view>
+      <view>已提取元</view>
+    </view>
+    <view class='tab'>
+      <view>可提现 <text class='tab1'> 0 </text></view>
+      <view  class='tab2'>提现</view>
+    </view>
+</view>
+<view class='insRole'>邀请规则</view>
+<view class="section">
+  <view>[注册奖励 现金<text class='tab1'>1</text>元]</view>
+  <view class='insRole1'>成功邀请好友注册且没有返现作弊嫌疑，邀请人可获得<text class='tab1'>1</text>元现金奖励</view>
+  <view>[工作奖励 现金<text class='tab1'>5</text>元]</view>
+  <view class='insRole1'>成功邀请好友注册且好友首次在周一至周四范围内工作，则奖励<text class='tab1'>5</text>元</view>
+</view>

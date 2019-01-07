@@ -103,14 +103,26 @@ Page({
       method: "GET",
       success: function (res) {
         console.log(res);
-        wx.setStorage({ key: "JSESSIONID", data: res.cookies[0].value });
-        wx.setStorage({ key: "uid", data: res.cookies[1].value });
-        wx.setStorage({ key: "imgUrl", data: res.data.object.imgUrl });
-        wx.setStorage({ key: "nickname", data: res.data.object.nickname });
-        wx.setStorage({ key: "phone", data: res.data.object.phone });
-        wx.switchTab({
-          url: '/pages/index/index',
-        });
+        if(res.result==0){
+          wx.showModal({
+            title: '温馨提示',
+            content: res.msg,
+            success(res) {
+              if (res.confirm) { } else if (res.cancel) { }
+            }
+          })
+        }else{
+          wx.setStorage({ key: "JSESSIONID", data: res.cookies[0].value });
+          wx.setStorage({ key: "uid", data: res.cookies[1].value });
+          wx.setStorage({ key: "imgUrl", data: res.data.object.imgUrl });
+          wx.setStorage({ key: "nickname", data: res.data.object.nickname });
+          wx.setStorage({ key: "phone", data: res.data.object.phone });
+          wx.setStorage({ key: "password", data: res.data.object.password });
+          wx.switchTab({
+            url: '/pages/index/index',
+          });
+        }
+        
       }
     })
   }

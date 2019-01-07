@@ -113,5 +113,10 @@ Page({
     wx.navigateTo({
       url: '/pages/set/set',
     })
+  },
+  goInvitation(){
+    wx.navigateTo({
+      url: '/pages/invitation/invitation',
+    })
   }
 })

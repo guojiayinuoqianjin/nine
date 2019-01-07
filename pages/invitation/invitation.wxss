@@ -1,0 +1,42 @@
+/* pages/invitation/invitation.wxss */
+page{
+  font-size: 0.8rem;
+}
+.insImg{
+  width:100%;height:9rem;
+}
+.tabFather{
+  display: flex;
+  flex-direction: row;
+  border-bottom:1px solid #ddd;
+  height:3rem;
+}
+.tab{
+  width: 33.333%;
+  height: 2rem;
+  text-align: center;
+}
+.tab1{
+  color: red;
+}
+.tab2{
+  width: 4rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  border: 1px solid red;
+  color: red;
+  margin: .5rem auto;
+}
+.insRole{
+  text-align: center;
+  margin-top: 1rem;
+}
+.insRole1{
+  font-size: .7rem;
+  margin: .5rem 0;
+}
+.section{
+  padding: .5rem;
+  text-align: justify;
+}

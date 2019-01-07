@@ -16,7 +16,8 @@
     "pages/feedBack/feedBack",
     "pages/set/set",
     "pages/editPwd/editPwd",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/invitation/invitation"
   ],
   "tabBar": {
     "color": "#dddddd",
