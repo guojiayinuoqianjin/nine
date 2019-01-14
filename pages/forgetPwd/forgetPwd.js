@@ -1,3 +1,5 @@
+var url = require('../../utils/request.js');
+var network = require('../../utils/util.js');
 Page({
 
   /**
@@ -6,6 +8,9 @@ Page({
   data: {
     yzm: true,
     time: 60,
+    phoneNumber:"",
+    password:"",
+    code:""
   },
 
   /**
@@ -86,5 +91,103 @@ Page({
       }
     }, 1000);
   },
+
+  //获取验证码
+
+  countDownMsg() {
+    var page = this;
+    if (page.data.phoneNumber != "") {
+      var getDataUrl = url.data + "/mobile/codeForget";
+      var param = {
+        phoneNumber: page.data.phoneNumber
+      };
+      network.requestData('POST', param, getDataUrl, function (obj) {
+        if (obj.result == 0) {
+          wx.showModal({
+            title: '温馨提示',
+            content: obj.msg,
+            success(res) {
+              if (res.confirm) { } else if (res.cancel) { }
+            }
+          })
+        } else {
+          page.countDown();
+          wx.showToast({
+            title: obj.msg,
+            mask: true,
+            icon: 'success'
+          })
+        }
+      });
+    } else {
+      wx.showModal({
+        title: '温馨提示',
+        content: "电话不能为空",
+        success(res) {
+          if (res.confirm) { } else if (res.cancel) { }
+        }
+      })
+    }
+  },
+
+  phoneNumber(e){
+    var page=this;
+    var phoneNumber=e.detail.value;
+    page.setData({
+      phoneNumber: phoneNumber
+    });
+  },
+  code(e) {
+    var page = this;
+    var code = e.detail.value;
+    page.setData({
+      code: code
+    });
+  },
+  password(e) {
+    var page = this;
+    var password = e.detail.value;
+    page.setData({
+      password: password
+    });
+  },
+
+
+  //重置密码
+  submit(){
+    var page=this;
+    var getDataUrl = url.data + "/mobile/forget";
+    var param={
+      code:page.data.code,
+      password:page.data.password,
+      phoneNumber:page.data.phoneNumber
+    }
+    network.requestData('POST', param, getDataUrl, function (obj) {
+      console.log(obj);
+      if (obj.result == 1) {
+        wx.showModal({
+          title: '温馨提示',
+          content: obj.msg,
+          success(res) {
+            if (res.confirm) {
+              wx.navigateTo({
+                url: '/pages/login/login',
+              });
+            } else if (res.cancel) { }
+          }
+        })
+      } else {
+        wx.showModal({
+          title: '温馨提示',
+          content: obj.msg,
+          success(res) {
+            if (res.confirm) { } else if (res.cancel) { }
+          }
+        })
+      }
+
+    });
+
+  }
 
 })

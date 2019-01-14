@@ -95,17 +95,43 @@ Page({
   },
 
   add(e){
-    var id = e.currentTarget.dataset.id;
-    var getDataUrl = url.data + "/mobile/ea/addEa";
-    var param = {
-      jobId: id
-    };
-    network.requestData('POST', param, getDataUrl, function (obj) {
-      console.log(obj);
-      // page.setData({
-      //   data: obj.object,
-      // });
-    });
+    if (wx.getStorageSync("uid") == "" || wx.getStorageSync("uid")==undefined){
+      wx.showModal({
+        title: '温馨提示',
+        content: "您还未登录，请前去登录",
+      })
+    }else{
+      var id = e.currentTarget.dataset.id;
+      var getDataUrl = url.data + "/mobile/ea/addEa";
+      var param = {
+        'job.id': id,
+      };
+      console.log(param);
+      wx.request({
+        url: getDataUrl,
+        data: param,
+        method: "POST",
+        header: {
+          'Cookie': 'uid=' + wx.getStorageSync('uid'),
+        },
+        success: function (res) {
+          if(res.data.result==0){
+            wx.showModal({
+              title: '温馨提示',
+              content: res.data.msg,
+            })
+          }else{
+            wx.showToast({
+              title: res.data.msg,
+              mask: true,
+              icon: 'success'
+            })
+          }
+        }
+      })
+      
+    }
+    
 
   },
 
@@ -163,6 +189,14 @@ Page({
         })
       }
     });
+  },
+
+
+  makePhone(e){
+      var phone=e.currentTarget.dataset.phone;
+      wx.makePhoneCall({
+        phoneNumber: phone 
+      })
   }
 
 

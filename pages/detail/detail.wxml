@@ -67,7 +67,7 @@
   </view>
 
   <view class='footer'>
-    <view class='footerTab footerTab1'><image src="../../img/job.png"></image><text>电话</text></view>
+    <view class='footerTab footerTab1' bindtap='makePhone' data-phone='{{data.tel}}'><image src="../../img/job.png"></image><text>电话</text></view>
     <view class='footerTab' wx:if="{{data.storeState==false}}" bindtap='store' data-id="{{data.id}}"><image src="../../img/onheart.png"></image><text>收藏</text></view>
     <view class='footerTab' wx:if="{{data.storeState==true}}" bindtap='on_store' data-id="{{data.id}}"><image src="../../img/heart.png"></image><text>已收藏</text></view>
     <view class='footerTab footerTab3' wx:if="{{data.enough!=0||data.overdue==1}}"><text>报名已满或已过期</text></view>

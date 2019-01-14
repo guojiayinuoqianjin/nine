@@ -96,11 +96,11 @@ Page({
 
   },
   // 性别
-  bindPickerChange(e){
-      this.setData({
-        array_index: e.detail.value
-      });
-  },
+  // bindPickerChange(e){
+  //     this.setData({
+  //       array_index: e.detail.value
+  //     });
+  // },
   //日期
   bindDateChange(e) {
     this.setData({
@@ -128,14 +128,17 @@ Page({
   },
   //性别
   bindPickerChange(e){
-    this.setData({
-      sex: e.detail.value=="1"?"男":"女"
+    var page=this;
+    page.setData({
+      sex: page.data.array_index=="1"?"男":"女",
+      array_index:e.detail.value
     });
   },
   //出生年月
   bindDateChange(e){
     this.setData({
-      birthDate: e.detail.value
+      birthDate: e.detail.value,
+      date: e.detail.value,
     });
   },
   //身份证号
@@ -153,13 +156,15 @@ Page({
   //教育情况
   bindPickerChange2(e){
     this.setData({
-      edu_type: e.detail.value
+      edu_type: e.detail.value,
+      array2_index: e.detail.value,
     });
   },
   //有无经验
   bindPickerChange3(e){
     this.setData({
-      exp_have: e.detail.value
+      exp_have: e.detail.value,
+      array3_index: e.detail.value,
     });
   },
   //身高
@@ -213,26 +218,38 @@ Page({
       }
     network.requestData('GET', param, getDataUrl, function (obj) {
       console.log(obj);
-      page.setData({
-        data: obj.object,
-        date: obj.object.birthDate,
-        array2_index: obj.object.edu_type,
-        array3_index: obj.object.exp_have,
+      if(obj.result==0){
+        wx.showModal({
+          title: '温馨提示',
+          content: obj.msg,
+          success(res) {
+            if (res.confirm) {
+            } else if (res.cancel) { }
+          }
+        })
+      }else{
+        page.setData({
+          data: obj.object,
+          date: obj.object.birthDate,
+          array2_index: obj.object.edu_type,
+          array3_index: obj.object.exp_have,
 
-        real_name: obj.object.real_name,
-        sex: obj.object.sex,
-        birthDate: obj.object.birthDate,
-        id_number: obj.object.id_number,
-        phone: obj.object.phone,
-        edu_type: obj.object.edu_type,
-        exp_have: obj.object.exp_have,
-        height: obj.object.height,
-        weight: obj.object.weight,
-        zfb_number: obj.object.zfb_number,
-        zfb_account_name: obj.object.zfb_account_name,
-        wx_number: obj.object.wx_number,
-        workExperience: obj.object.workExperience,
-      });
+          real_name: obj.object.real_name,
+          sex: obj.object.sex,
+          birthDate: obj.object.birthDate,
+          id_number: obj.object.id_number,
+          phone: obj.object.phone,
+          edu_type: obj.object.edu_type,
+          exp_have: obj.object.exp_have,
+          height: obj.object.height,
+          weight: obj.object.weight,
+          zfb_number: obj.object.zfb_number,
+          zfb_account_name: obj.object.zfb_account_name,
+          wx_number: obj.object.wx_number,
+          workExperience: obj.object.workExperience,
+        });
+      }
+      
     });
   },
 
@@ -241,46 +258,106 @@ Page({
     var page = this;
     var getDataUrl = url.data + "/mobile/resume/updateResume";
     var id = e.currentTarget.dataset.id;
-    var param={
-      real_name: page.data.real_name,
-      sex: page.data.sex,
-      birthDate: page.data.birthDate,
-      id_number: page.data.id_number,
-      phone: page.data.phone,
-      edu_type: page.data.edu_type,
-      exp_have: page.data.exp_have,
-      height: page.data.height,
-      weight: page.data.weight,
-      zfb_number: page.data.zfb_number,
-      zfb_account_name: page.data.zfb_account_name,
-      wx_number: page.data.wx_number,
-      workExperience: page.data.workExperience,
-      id:id
-    }
-    network.requestData('POST', param, getDataUrl, function (obj) {
-      if (obj.result==1){
-        wx.showModal({
-          title: '温馨提示',
-          content: obj.msg,
-          success(res) {
-            if (res.confirm) {
-              wx.switchTab({
-                url: '/pages/my/my',
-              });
-            } else if (res.cancel) {}
-          }
-        })
-      } else {
-        wx.showModal({
-          title: '温馨提示',
-          content: obj.msg,
-          success(res) {
-            if (res.confirm) { } else if (res.cancel) { }
-          }
-        })
+
+    if (id == undefined){
+      var getDataUrl2 = url.data+"/mobile/resume/addResume";
+      var param = {
+        real_name: page.data.real_name,
+        sex: page.data.sex,
+        birthDate: page.data.birthDate,
+        id_number: page.data.id_number,
+        phone: page.data.phone,
+        edu_type: page.data.edu_type,
+        exp_have: page.data.exp_have,
+        height: page.data.height,
+        weight: page.data.weight,
+        zfb_number: page.data.zfb_number,
+        zfb_account_name: page.data.zfb_account_name,
+        wx_number: page.data.wx_number,
+        workExperience: page.data.workExperience,
       }
-      
-    });
+      console.log(param);
+
+      wx.request({
+        url: getDataUrl2,
+        data: param,
+        method: "POST",
+        header: {
+          'Cookie': 'uid=' + wx.getStorageSync('uid'),
+        },
+        success: function (res) {
+          if (res.data.result == 1) {
+            wx.showModal({
+              title: '温馨提示',
+              content: res.data.msg,
+              success(res) {
+                if (res.confirm) {
+                  wx.switchTab({
+                    url: '/pages/my/my',
+                  });
+                } else if (res.cancel) { }
+              }
+            })
+          } else {
+            wx.showModal({
+              title: '温馨提示',
+              content: res.data.msg,
+              success(res) {
+                if (res.confirm) { } else if (res.cancel) { }
+              }
+            })
+          }
+        }
+      })
+
+    }else{
+      var param = {
+        real_name: page.data.real_name,
+        sex: page.data.sex,
+        birthDate: page.data.birthDate,
+        id_number: page.data.id_number,
+        phone: page.data.phone,
+        edu_type: page.data.edu_type,
+        exp_have: page.data.exp_have,
+        height: page.data.height,
+        weight: page.data.weight,
+        zfb_number: page.data.zfb_number,
+        zfb_account_name: page.data.zfb_account_name,
+        wx_number: page.data.wx_number,
+        workExperience: page.data.workExperience,
+        id: id
+      }
+      console.log(param);
+      network.requestData('POST', param, getDataUrl, function (obj) {
+        console.log(obj);
+        if (obj.result == 1) {
+          wx.showModal({
+            title: '温馨提示',
+            content: obj.msg,
+            success(res) {
+              if (res.confirm) {
+                wx.switchTab({
+                  url: '/pages/my/my',
+                });
+              } else if (res.cancel) { }
+            }
+          })
+        } else {
+          wx.showModal({
+            title: '温馨提示',
+            content: obj.msg,
+            success(res) {
+              if (res.confirm) { } else if (res.cancel) { }
+            }
+          })
+        }
+
+      });
+    }
+
+
+
+    
     
   }
 

@@ -38,6 +38,7 @@ function requestData(method, params, url, cb) {
     method: method,
     header: headObj,
     success: function (res) {
+      console.log(res)
       return typeof cb == "function" && cb(res.data)
     }
   })

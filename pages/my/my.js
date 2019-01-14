@@ -31,6 +31,11 @@ Page({
   onShow: function () {
     var page = this;
     page.isLogin();
+    page.setData({
+      phone: wx.getStorageSync("phone"),
+      setPhone: wx.getStorageSync("nickname"),
+      imgUrl: wx.getStorageSync("avatarUrl")
+    });
   },
 
   /**
@@ -115,8 +120,24 @@ Page({
     })
   },
   goInvitation(){
-    wx.navigateTo({
-      url: '/pages/invitation/invitation',
+    // wx.navigateTo({
+    //   url: '/pages/invitation/invitation',
+    // })
+    wx.showModal({
+      title: '温馨提示',
+      content: "活动暂未开放",
+      success(res) {
+        if (res.confirm) { } else if (res.cancel) { }
+      }
+    })
+  },
+  goEmejob(){
+    wx.showModal({
+      title: '温馨提示',
+      content: "活动暂未开放",
+      success(res) {
+        if (res.confirm) { } else if (res.cancel) { }
+      }
     })
   }
 })

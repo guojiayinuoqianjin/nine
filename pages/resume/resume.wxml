@@ -7,7 +7,11 @@
       <text class='real_name_text'>性别:</text>
       <picker class='pickerImg' bindchange="bindPickerChange" value="{{array_index}}" range="{{array}}" mode = "selector">
               <view class="picker">
-                {{array[data.sex=="男"?0:1]}}<image src="../../img/downlist.png" class="downlistImg"/>
+
+                <!-- <view wx:if='{{data.sex!=undefined}}'>{{array[data.sex=="男"?0:1]}}</view> -->
+                <view >{{array[array_index]}}</view>
+                
+              
               </view>
       </picker>
   </view>

@@ -166,5 +166,62 @@ Page({
         }
       })
     }
+  },
+
+
+  //注册
+  submit(){
+    var page = this;
+    if (page.data.phoneNumber == "") {
+      wx.showModal({
+        title: '温馨提示',
+        content: "电话不能为空",
+        success(res) {
+          if (res.confirm) { } else if (res.cancel) { }
+        }
+      })
+      return false;
+    }
+    if(page.data.again_password!=page.data.password){
+      wx.showModal({
+        title: '温馨提示',
+        content: "两次密码输入不一致",
+        success(res) {
+          if (res.confirm) { } else if (res.cancel) { }
+        }
+      })
+      return false;
+    }
+    var getDataUrl = url.data + "/mobile/reg";
+    var param = {
+      phoneNumber: page.data.phoneNumber,
+      password:page.data.password,
+      code: page.data.code,
+      yq_code: page.data.yq_code,
+    };
+    network.requestData('POST', param, getDataUrl, function (obj) {
+      if (obj.result == 0) {
+        wx.showModal({
+          title: '温馨提示',
+          content: obj.msg,
+          success(res) {
+            if (res.confirm) { } else if (res.cancel) { }
+          }
+        })
+      } else {
+        wx.showToast({
+          title: obj.msg,
+          mask: true,
+          icon: 'success',
+          success:function(){
+            wx.navigateTo({
+              url: '/pages/login/login',
+            })
+          }
+        })
+      }
+    });
+
+
   }
 })

@@ -23,7 +23,7 @@
   </view>
 
 
-  <view class='submit'>注册</view>
+  <view class='submit' bindtap='submit'>注册</view>
 
 
   <view class='imformation'>注册表示同意《<text bindtap='goImformation'>用户协议</text>》</view>
